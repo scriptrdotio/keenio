@@ -28,7 +28,7 @@ key is "project_the__project__id", and value is an object with two porperties "w
 Require the keenioclient from a script, then create an instance of the KeenioClient class.
 Note that you can pass an access key to the constructor or just rely on the one defined in the config file.
 ```
-var keenioclient = require("keenio/keenioclient");
+var keenioclient = require("/modules/keenio/keenioclient");
 var keenio = new keenioclient.Keenio("YOUR_PROJECT_ID");
 ```
 
