@@ -4,7 +4,7 @@ write=nobody
 execute=authenticated 
   **/ 
  
- var querymodule = require("./query");
+ var querymodule = require("./query.js");
 
 /**
  * Use this class to run a multiple analyses at once on your data.

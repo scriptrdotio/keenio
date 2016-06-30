@@ -4,8 +4,8 @@ write=nobody
 execute=authenticated 
   **/ 
  
- var httpclient = require("./httpclient");
-var config = require("./config");
+ var httpclient = require("./httpclient.js");
+var config = require("./config.js");
 
 /**
  * This is the main class to interact with Keen.io's APIs
@@ -89,7 +89,7 @@ Keenio.prototype.recordMultipleEvents = function(eventCollection) {
  */
 Keenio.prototype.createAnalyses = function() {  
   
-  var analyses = require("./analyses");
+  var analyses = require("./analyses.js");
   var params = {
     
     httpClient: this.httpClient,
@@ -108,7 +108,7 @@ Keenio.prototype.createAnalyses = function() {
  */
 Keenio.prototype.createMultiAnalysis = function(params) {  
   
-  var multianalysis = require("./multianalysis");
+  var multianalysis = require("./multianalysis.js");
   var multiAnalysisParams = {
     
     httpClient: this.httpClient,
@@ -128,7 +128,7 @@ Keenio.prototype.createMultiAnalysis = function(params) {
  */
 Keenio.prototype.createQuery = function(params) {  
   
-  var query = require("./query");
+  var query = require("./query.js");
   params = params ? params : {};
   params.httpClient = this.httpClient;
   params.key = this.readKey;
@@ -157,7 +157,7 @@ Keenio.prototype.createQuery = function(params) {
  */
 Keenio.prototype.createExtraction = function(params) {  
   
-  var extractions = require("./extractions");
+  var extractions = require("./extractions.js");
   var extractionParams = {
   	
     httpClient: this.httpClient,

@@ -10,7 +10,7 @@ execute=authenticated
  * Keenio class
  */
 
-var keenioclient = require("../keenioclient");
+var keenioclient = require("../keenioclient.js");
 var keenio = new keenioclient.Keenio("YOUR_PROJECT_ID");
 
 

@@ -4,7 +4,7 @@ write=nobody
 execute=authenticated 
   **/ 
  
- var querymodule = require("./query");
+ var querymodule = require("./query.js");
 
 /**
  * Use this class to create an extraction request for full-form event data with all property values.
