@@ -1,20 +1,23 @@
-/** Script ACLs do not delete 
- read=nobody 
-write=nobody
-execute=authenticated 
-  **/ 
  
- var httpclient = require("./httpclient.js");
-var config = require("./config.js");
+var httpclient = require("./httpclient.js");
+var configModule = require("./config.js");
 
 /**
  * This is the main class to interact with Keen.io's APIs
  * @class Keenio
  * @constructor
  * @param {String} projectId
+ * @param {Object} [myConfig]: optional, defaults to the content of /keenio/config.js
+ * @param {String} [myConfig.PROJECT_PREFIX] : prefix of Keen.io project (used to identify project keys in the provided config)
+ * @param {Object} [myConfig.project]: the configuration of a project. Each project has its own set of properties. 
+ * PROJECT_PREFIX + projectId are used as a property name to retrieve the configuration of the corresponding project
+ * @param {String} [myConfig.projects.PROJECT_PREFIXproject_id].writeKey : project's write key as provided by Keen.io 
+ * @param {String} [myConfig.projects.PROJECT_PREFIXproject_id].readKey : project's read key as provided by Keen.io 
+ * ex of config : {PROJECT_PREFIX: "proj_", {projects: "project_569574g9673e6c73d2393b26": {writeKey:"123445", readKey:"2sdyqweidweqy"}}
  */
-function Keenio(projectId) {
+function Keenio(projectId, myConfig) {
   
+  var config = myConfig ? myConfig : configModule;
   this.projectId = projectId;
   this.httpClient = new httpclient.HttpClient();
   this.writeKey = config.projects[config.PROJECT_PREFIX + this.projectId].writeKey;
